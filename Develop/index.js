@@ -44,8 +44,13 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Who should be credited for this project?',
-        name: 'credits',
+        message: 'What is your Github username?',
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: 'What email can questions be sent to?',
+        name: 'email',
     }
 ];
 

@@ -41,8 +41,9 @@ function generateMarkdown(data) {
   ## Tests
   ${data.test}
 
-  ## Credits
-  ${data.credits}
+  ## Questions
+  If you have questions about this project contact 
+  ${data.username} or ${data.email}.
 `;
 }
 
