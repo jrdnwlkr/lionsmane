@@ -12,30 +12,41 @@ const questions = [
        name: 'title', 
     },
     {
+        type: 'list-input',
+        message: 'Choose a license',
+        name: 'license',
+        choices: ['None', 'Apache 2.0', 'MIT', 'GPL v3.0']
+     },
+    {
        type: 'input',
        message: 'Describe your project.',
        name: 'description', 
     },
-    // {
-    //     type: 'input',
-    //     message: 'What are the steps required to install your project?',
-    //     name: 'installation',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'How should your project be used?',
-    //     name: 'usage',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Describe an example of how your project can or should be used.',
-    //     name: 'example'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Who should be credited for this project?',
-    //     name: 'credits',
-    // }
+    {
+        type: 'input',
+        message: 'What are the steps required to install your project?',
+        name: 'installation',
+    },
+    {
+        type: 'input',
+        message: 'How should your project be used?',
+        name: 'usage',
+    },
+    {
+        type: 'input',
+        name: 'contributions',
+        message: 'What guidelines must others follow in order to contribute?'
+    },
+    {
+        type: 'input',
+        message: 'How do you test this project?',
+        name: 'test'
+    },
+    {
+        type: 'input',
+        message: 'Who should be credited for this project?',
+        name: 'credits',
+    }
 ];
 
 // .then(response => {
@@ -44,24 +55,30 @@ const questions = [
 //         const { title, description, installation, usage, example, credits } = response;
 //         console.log(title, description, installation, usage, example, credits);
 //     });
-const answers = "";
+// const answers = "";
 // // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile("README.md", answers, (err) => {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("Woohoo!")
+const writeToFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('README.md', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true
+            });
+        });
     });
 };
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-        .then(function(response) {
-            console.log(response);
-        var markdown = generateMarkdown(response);
-        writeToFile(markdown)
+        .then(function(answer) {
+            console.log(answer);
+        var fileContent = generateMarkdown(answer);
+        console.log(fileContent)
+        writeToFile(fileContent)
     });
 }
 
