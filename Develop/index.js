@@ -12,7 +12,7 @@ const questions = [
        name: 'title', 
     },
     {
-        type: 'list-input',
+        type: 'list',
         message: 'Choose a license',
         name: 'license',
         choices: ['None', 'Apache 2.0', 'MIT', 'GPL v3.0']
