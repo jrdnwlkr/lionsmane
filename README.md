@@ -1,3 +1,9 @@
-# Professional README Generator Starter Code
+# Professional README Generator
+## Description
+This program generates a README.md file from the command line using Inquirer.
 
-[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
+## Video
+https://drive.google.com/file/d/1S16XOxLoI9nRIA52dbo-j60fpRocmYtc/view
+
+## Repository
+https://github.com/jrdnwlkr/lionsmane
